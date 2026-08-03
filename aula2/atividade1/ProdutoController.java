@@ -1,18 +1,22 @@
-import java.util.ArrayArrayList;
+import java.util.ArrayList;
 
 public class ProdutoController {
-    private ArrayList<Produto> produtos = new ArrayArrayList<>();
+    ArrayList<Produto> produtos = new ArrayList<>();
 
     public void cadastrarProduto(Produto produto) {
         produtos.add(produto);
     }
 
-    public ArrayList<Produto> listarProdutos() {
+    public ArrayList<Produto> venderProdutos() {
         return produtos;
     }
 
-    public ArrayList<Produto> venderProdutos() {
-        return produtos;
+    public void listarProdutos() {
+        for (Produto p : produtos) {
+            System.out.println("Nome: " + p.getNome());
+            System.out.println("Preço: R$ " + p.getPreco());
+            System.out.println("Quantidade: " + p.getQuantidadeEmEstoque());
+        }
     }
 
     public ArrayList<Produto> reporProdutos() {

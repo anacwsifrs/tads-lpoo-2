@@ -14,6 +14,7 @@ public class Main {
         while(opc !=5){
             menu.exibirMenu();
             opc = scanner.nextInt();
+            scanner.nextLine();
             switch(opc){
                 case 1:
                     System.out.println("Escreva o nome do produto: ");
