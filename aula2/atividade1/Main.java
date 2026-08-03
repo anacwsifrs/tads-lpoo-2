@@ -3,10 +3,9 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Produto> produtos = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         Menu menu = new Menu();
-
+        ProdutoController pc = new ProdutoController();
         int opc = 0;
         String nomeProduto;
         double precoProduto;
@@ -26,13 +25,11 @@ public class Main {
                     System.out.println("Escreva a quantidade do produto: ");
                     quantidadeProduto = scanner.nextInt();
 
-                    produtos.add(new Produto(nomeProduto, precoProduto, quantidadeProduto));
-
+                    Produto p = new Produto(nomeProduto, precoProduto, quantidadeProduto);
+                    pc.cadastrarProduto(p);
                     break;
                 case 2:
-                    for (Produto produto : produtos) {
-                        produto.mostrarEstoque();
-                    }
+                    pc.listarProdutos();
                     break;
                 case 3:
                     System.out.println("Escreva o nome do produto: ");
