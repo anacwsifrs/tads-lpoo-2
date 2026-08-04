@@ -33,7 +33,16 @@ public class Main {
                     pc.listarProdutos();
                     break;
                 case 3:
-                    System.out.println("Escreva o nome do produto: ");
+                    System.out.println("Digite o nome do produto que você deseja vender: ");
+                    nomeProduto = scanner.nextLine();
+                    System.out.println("Quantos desse produto deseja vender?");
+                    quantidadeProduto = scanner.nextInt();
+
+                    if(nomeProduto.equals(p.nome)){
+                        controller.venderProduto(p, quantidadeProduto);
+                    }else{
+                        System.out.println("Esse produto não existe");
+                    }
                     break;
                 case 4:
                     System.out.println("Escreva o nome do produto: ");
