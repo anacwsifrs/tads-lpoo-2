@@ -1,25 +1,24 @@
 import java.time.LocalDate;
 
-public class ProdutoPerecivel extends Produto {
-
+public class ProdutoPerecivel extends Produto implements DescontoQuantidade {
     private LocalDate dataValidade;
 
-    public ProdutoPerecivel(String nome, double preco, int quantidadeEmEstoque, LocalDate dataValidade) {
-        super(nome, preco, quantidadeEmEstoque);
+    public ProdutoPerecivel(String nome, double preco, int quantidade, LocalDate dataValidade) {
+        super(nome, preco, quantidade);
         this.dataValidade = dataValidade;
     }
 
     @Override
-    public void mostrarEstoque() {
-        super.mostrarEstoque();
-        System.out.println("Data de Validade: " + this.dataValidade);
+    public void mostrarDetalhes() {
+        System.out.println("--- Produto Perecível ---");
+        System.out.println("Nome: " + getNome());
+        System.out.println("Preço: R$ " + getPreco());
+        System.out.println("Quantidade: " + getQuantidadeEmEstoque());
+        System.out.println("Validade: " + dataValidade);
     }
 
-    public LocalDate getDataValidade() {
-        return dataValidade;
-    }
-
-    public void setDataValidade(LocalDate dataValidade) {
-        this.dataValidade = dataValidade;
+    @Override
+    public double calcularDesconto() {
+        return getPreco() * 0.10; 
     }
 }

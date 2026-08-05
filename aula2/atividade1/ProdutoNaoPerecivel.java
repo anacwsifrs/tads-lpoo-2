@@ -8,8 +8,11 @@ public class ProdutoNaoPerecivel extends Produto {
     }
 
     @Override
-    public void mostrarEstoque() {
-        super.mostrarEstoque();
+    public void mostrarDetalhes() {
+        System.out.println("--- Produto Não Perecível ---");
+        System.out.println("Nome: " + getNome());
+        System.out.println("Preço: R$ " + getPreco());
+        System.out.println("Quantidade: " + getQuantidadeEmEstoque());
         System.out.println("Garantia: " + this.garantiaMeses + " meses");
     }
 
