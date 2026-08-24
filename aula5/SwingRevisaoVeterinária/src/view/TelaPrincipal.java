@@ -65,7 +65,7 @@ public class TelaPrincipal extends JFrame {
 		
 		//adição de funcionalidade aos botões
 		btnDonos.addActionListener(e-> abrirTelaDonos());
-		//btnAnimais.addActionListener(e-> abrirTelaAnimais());
+		btnAnimais.addActionListener(e-> abrirTelaAnimais());
 		//btnConsultas.addActionListener(e-> abrirTelaConsultas());
 		
 		//adicionando os paineis a tela principal
@@ -76,6 +76,12 @@ public class TelaPrincipal extends JFrame {
 	
 	private void abrirTelaDonos() {
 		TelaDonos tela = new TelaDonos(tutorController);
+		
+		tela.setVisible(true);
+	}
+	
+	private void abrirTelaAnimais() {
+		TelaAnimal tela = new TelaAnimal(animalController);
 		
 		tela.setVisible(true);
 	}
