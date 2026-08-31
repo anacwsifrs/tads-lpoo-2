@@ -1,51 +1,23 @@
 package controller;
 
-import java.util.ArrayList;
 import java.util.List;
-
+import dao.DonoDAO;
 import model.Dono;
 
 public class DonoController {
-	int proxId=0;
-	private List<Dono> donos;
-	
-	public DonoController() {
-	    donos = new ArrayList<>();
-	}
-	
-	public Dono cadastrar( String nome,String telefone){
-		
-		Dono dono = new Dono(proxId,nome,telefone);
-		
-		donos.add(dono);
-		
-		proxId++;
-		
-		return dono;
-	}
-	
-	public List<Dono> listar(){
-	    return donos;
-	}
-	
-	public Dono buscarPorId(int id){
-	
-		for (Dono dono : donos){
-		
-			if (dono.getId() == id) {
-			    return dono;
-			}
-		}
-		
-		return null;
-	}
-	
-	public void excluir(int id) {
-	
-		Dono tutor = buscarPorId(id);
-		
-		if (tutor != null) {
-		    donos.remove(tutor);
-		}
-	}
+    private DonoDAO dao;
+
+    public DonoController() {
+        this.dao = new DonoDAO();
+    }
+
+    public Dono cadastrar(String nome, String telefone) {
+        Dono dono = new Dono(0, nome, telefone);
+        dao.salvar(dono);
+        return dono;
+    }
+
+    public List<Dono> listar() {
+        return dao.listarTodos();
+    }
 }
