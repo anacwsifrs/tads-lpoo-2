@@ -1,7 +1,7 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import controller.AnimalController;
 import controller.ConsultaController;
 import controller.DonoController;
-import java.awt.FlowLayout;
 
 public class TelaPrincipal extends JFrame {
 	//declaração dos controladores
@@ -43,20 +42,15 @@ public class TelaPrincipal extends JFrame {
 	private void criarComponentes() {
 		// texto do canto superior
 		JLabel titulo = new JLabel("Sistema da Clínica Veterinária");
+
 		// botões do header
-		
-		JButton btnDonos =new JButton("Donos");
-		
-		JButton btnAnimais =new JButton("Animais");
-		
+		JButton btnDonos = new JButton("Donos");
+		JButton btnAnimais = new JButton("Animais");
 		JButton btnConsultas = new JButton("Consultas");
+
 		//criando painel e declarando o layout dele como sendo do flow
-		// o flow layout pões os itens um do lado do outro enquanto tiver espaço
-		// bom para headers
-		JPanel painel =new JPanel();
+		JPanel painel = new JPanel();
 		painel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		//o .Center declara que ele centraliza os compopnentes dentro dele
-		//os inteiros são a borda entre os componentes
 		
 		//adição dos botões ao painel criado
 		painel.add(btnDonos);
@@ -64,25 +58,27 @@ public class TelaPrincipal extends JFrame {
 		painel.add(btnConsultas);
 		
 		//adição de funcionalidade aos botões
-		btnDonos.addActionListener(e-> abrirTelaDonos());
-		btnAnimais.addActionListener(e-> abrirTelaAnimais());
-		//btnConsultas.addActionListener(e-> abrirTelaConsultas());
+		btnDonos.addActionListener(e -> abrirTelaDonos());
+		btnAnimais.addActionListener(e -> abrirTelaAnimais());
+		btnConsultas.addActionListener(e -> abrirTelaConsultas());
 		
 		//adicionando os paineis a tela principal
 		getContentPane().add(titulo, BorderLayout.NORTH);
 		getContentPane().add(painel, BorderLayout.CENTER);
 	}
 	
-	
 	private void abrirTelaDonos() {
 		TelaDonos tela = new TelaDonos(tutorController);
-		
 		tela.setVisible(true);
 	}
 	
 	private void abrirTelaAnimais() {
-		TelaAnimal tela = new TelaAnimal(animalController);
-		
+		TelaAnimal tela = new TelaAnimal(animalController, tutorController);
+		tela.setVisible(true);
+	}
+
+	private void abrirTelaConsultas() {
+		TelaConsulta tela = new TelaConsulta(consultaController, animalController);
 		tela.setVisible(true);
 	}
 }

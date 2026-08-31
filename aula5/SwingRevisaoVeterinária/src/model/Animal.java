@@ -16,7 +16,6 @@ public class Animal {
 		this.dono = dono;
 		this.id = id;
 	}
-	
 
 	public String getNome() {
 		return nome;
@@ -49,4 +48,8 @@ public class Animal {
 		this.id = id;
 	}
 
+	@Override
+	public String toString() {
+		return nome;
+	}
 }
