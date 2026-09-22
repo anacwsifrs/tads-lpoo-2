@@ -1,0 +1,14 @@
+CREATE DATABASE IF NOT EXISTS escola;
+USE escola;
+
+CREATE TABLE aluno (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    idade INT NOT NULL
+);
+
+CREATE TABLE curso (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    cargaHoraria INT NOT NULL
+);
